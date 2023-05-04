@@ -1,3 +1,5 @@
 /.DS_Store
 /data
 /data.db
+results.html
+*.pyc
