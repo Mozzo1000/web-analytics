@@ -1,0 +1,37 @@
+{# templates/report.html #}
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <h1>Status codes</h1>
+
+    <table>
+        <tr>
+            <th>Status code</th>
+            <th>Count</th>
+        </tr>
+        {% for data in status %}
+        <tr>
+            <td>{{ data[0] }}</td>
+            <td>{{ data[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <ul>
+
+    </ul>
+    <h1>URLs ({{url|length}})</h1>
+    <ul>
+        {% for data in url %}
+        <li>
+            <em>{{ data }}</em>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
