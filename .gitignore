@@ -1,5 +1,4 @@
 /.DS_Store
-/data
-/data.db
+/data*
 results.html
 *.pyc
