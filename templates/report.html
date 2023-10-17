@@ -2,36 +2,52 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
 
 <body>
-    <h1>Status codes</h1>
+    <h1>Report</h1>
+    <img src="data:image/png;base64, {{ image_1 }}" />
 
-    <table>
-        <tr>
-            <th>Status code</th>
-            <th>Count</th>
-        </tr>
-        {% for data in status %}
-        <tr>
-            <td>{{ data[0] }}</td>
-            <td>{{ data[1] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <details>
+        <summary>
+            URLs ({{url|length}})
+        </summary>
+        <table>
+            <tr>
+                <th>URL</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Status</th>
+            </tr>
+            {% for data in all_data %}
+            <tr>
+                <td>{{ data[0] }}</td>
+                <td>{{ data[1] }}</td>
+                <td>{{ data[2] }}</td>
+                {% if not '200' in data[3] %}
+                <td style="background-color: #E14D2A;">{{ data[3] }}</td>
+                {% else %}
+                <td style="background-color: #5D9C59;">{{ data[3] }}</td>
+
+                {% endif %}
 
 
-    <ul>
+            </tr>
+            {% endfor %}
+        </table>
 
-    </ul>
-    <h1>URLs ({{url|length}})</h1>
-    <ul>
-        {% for data in url %}
-        <li>
-            <em>{{ data }}</em>
-        </li>
-        {% endfor %}
-    </ul>
+    </details>
 </body>
 
 </html>
